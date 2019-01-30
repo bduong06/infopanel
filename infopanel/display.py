@@ -140,7 +140,8 @@ def rgbmatrix_options_factory(config):
     if config['led-no-hardware-pulse']:
         options.disable_hardware_pulsing = True
     # mapper not yet available in lib
-    # options.led_pixel_mapper = config['led-pixel-mapper']
+    options.pixel_mapper_config = config['led-pixel-mapper']
+    options.multiplexing = config['led-multiplexing']
     return options
 
 

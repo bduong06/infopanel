@@ -44,10 +44,11 @@ RGBMATRIX = vol.Schema({'led-rows': int,
                         'led-scan-mode': vol.All(int, vol.Range(min=0, max=1)),
                         'led-pwm-lsb-nanoseconds': int,
                         'led-show-refresh': bool,
-                        'led-slowdown-gpio': vol.All(int, vol.Range(min=0, max=2)),
+                        'led-slowdown-gpio': vol.All(int, vol.Range(min=0, max=3)),
                         'led-no-hardware-pulse': bool,
                         # led-pixel-mapper not yet available through python api?
-                        #vol.Optional('led-pixel-mapper', default='') : str,
+                        vol.Optional('led-pixel-mapper', default='') : str,
+                        vol.Optional('led-multiplexing', default=10) : int
                         })
 
 GLOBAL = vol.Schema({'font_dir': str,
