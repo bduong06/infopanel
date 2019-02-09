@@ -8,7 +8,7 @@ import logging
 import os
 import itertools
 
-from infopanel import mqtt, scenes, config, display, sprites, data
+from infopanel import mqtt, scenes, config, display, sprites, data, helpers
 
 FRAME_DELAY_S = 0.005
 MODE_BLANK = 'blank'
@@ -161,6 +161,7 @@ class Driver(object):  # pylint: disable=too-many-instance-attributes
     def draw_frame(self):
         """Perform a double-buffered draw frame and frame switch."""
         self.display.clear()
+        self.display.rainbow_text(helpers.load_font("9x18B.bdf"), 5, 18, "Hair By Ning");
         self.active_scene.draw_frame(self.display)
         self.display.buffer()
 
