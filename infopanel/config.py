@@ -66,7 +66,7 @@ SCHEMA = vol.Schema({'mqtt': MQTT,
 
 def load_config_yaml(path):
     """Load and validate config file as an alternative to command line options."""
-    with open(path) as configfile:
+    with open(path, encoding='utf8') as configfile:
         config = yaml.load(configfile)
     config = SCHEMA(config)
 

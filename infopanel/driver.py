@@ -161,7 +161,7 @@ class Driver(object):  # pylint: disable=too-many-instance-attributes
     def draw_frame(self):
         """Perform a double-buffered draw frame and frame switch."""
         self.display.clear()
-        self.display.rainbow_text(helpers.load_font("9x18B.bdf"), 5, 18, "Hair By Ning");
+        self.display.rainbow_text(helpers.load_font("9x18B.bdf"), 6, 14, "Hair By Ning");
         self.active_scene.draw_frame(self.display)
         self.display.buffer()
 

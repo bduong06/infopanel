@@ -57,7 +57,7 @@ class Display(object):
                 float(i) / len(text), cmap=cm.gist_rainbow)  # pylint: disable=no-member
             x += self.text(font, x, y, r, g, b, char)
         if box:
-            self.draw_box(x_orig - 2, y - font.height + 2, x, y + 2)
+            self.draw_box(x_orig - 1, y - font.height + 4, x, y + 4)
 
     def draw_box(self, xmin, ymin, xmax, ymax):
         """Don't use PIL because it blanks.  NOTE: Use graphics.DrawLine."""

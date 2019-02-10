@@ -40,7 +40,7 @@ class Sprite(object):  # pylint: disable=too-many-instance-attributes
                        vol.Optional('max_ticks_per_phrase', default=400): int,
                        vol.Optional('x', default=0): int,
                        vol.Optional('y', default=0): int,
-                       vol.Optional('font_name', default='5x8.bdf'): str,
+                       vol.Optional('font_name', default='8x13.bdf'): str,
                        vol.Optional('phrases', default=['']): list,
                        vol.Optional('pallete', default={1: [255, 255, 255],
                                                         'text':[0, 255, 0],
