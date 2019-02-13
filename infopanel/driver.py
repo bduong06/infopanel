@@ -34,7 +34,7 @@ class Driver(object):  # pylint: disable=too-many-instance-attributes
         self.durations_in_s = {}  # scene: seconds
         self.scene_sequence = []
         self._scene_iterator = itertools.cycle(self.scene_sequence)
-        self._randomize_scenes = ON
+        self._randomize_scenes = OFF
         self._previous_mode = None
         self._mode = MODE_ALL
         self.modes = {}
@@ -161,7 +161,10 @@ class Driver(object):  # pylint: disable=too-many-instance-attributes
     def draw_frame(self):
         """Perform a double-buffered draw frame and frame switch."""
         self.display.clear()
-        self.display.rainbow_text(helpers.load_font("9x18B.bdf"), 6, 14, "Hair By Ning");
+        # draw border
+        self.display.draw_box(0, 0, 119, 79);
+        self.display.rainbow_text(helpers.load_font("9x18B.bdf"), 6, 14, "Hair By Ning", False);
+        self.display.draw_line(1, 18, 118, 18, 0, 200, 0);
         self.active_scene.draw_frame(self.display)
         self.display.buffer()
 

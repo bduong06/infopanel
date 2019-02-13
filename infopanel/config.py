@@ -34,19 +34,18 @@ SCENES = vol.Schema({str: {vol.Optional('type', default='Scene'): vol.Any(*SCENE
 
 MODES = vol.Schema({str: list})
 
-RGBMATRIX = vol.Schema({'led-rows': int,
+RGBMATRIX = vol.Schema({vol.Optional('led-rows', default=32): int,
                         vol.Optional('led-cols', default=32): int,
-                        'led-chain': int,
-                        'led-parallel': int,
-                        'led-pwm-bits': vol.All(int, vol.Range(min=1, max=11)),
-                        'led-brightness': vol.All(int, vol.Range(min=1, max=100)),
-                        'led-gpio-mapping': vol.Any('adafruit-hat-pwm', 'adafruit-hat', 'regular'),
-                        'led-scan-mode': vol.All(int, vol.Range(min=0, max=1)),
-                        'led-pwm-lsb-nanoseconds': int,
-                        'led-show-refresh': bool,
-                        'led-slowdown-gpio': vol.All(int, vol.Range(min=0, max=3)),
-                        'led-no-hardware-pulse': bool,
-                        # led-pixel-mapper not yet available through python api?
+                        vol.Optional('led-chain', default=1): int,
+                        vol.Optional('led-parallel', default=1): int,
+                        vol.Optional('led-pwm-bits', default=11): int,
+                        vol.Optional('led-brightness', default=100): int,
+                        vol.Optional('led-gpio-mapping', default='regular'): str, 
+                        vol.Optional('led-scan-mode', default=0): int,
+                        vol.Optional('led-pwm-lsb-nanoseconds', default=130): int,
+                        vol.Optional('led-show-refresh', default=False): bool,
+                        vol.Optional('led-slowdown-gpio', default=1): int,
+                        vol.Optional('led-no-hardware-pulse', default=False): bool,
                         vol.Optional('led-pixel-mapper', default='') : str,
                         vol.Optional('led-multiplexing', default=10) : int
                         })

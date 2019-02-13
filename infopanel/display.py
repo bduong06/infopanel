@@ -68,6 +68,10 @@ class Display(object):
         for y in range(ymin, ymax + 1):
             self.set_pixel(xmin, y, 0, 200, 0)
             self.set_pixel(xmax, y, 0, 200, 0)
+    
+    def draw_line(self, x0, y0, x1, y1, red, green, blue):
+        """Draw a line."""
+        raise NotImplementedError
 
 
 class RGBMatrixDisplay(Display):
@@ -120,6 +124,10 @@ class RGBMatrixDisplay(Display):
         """Swap the off-display canvas/buffer with the on-display one."""
         self.canvas = self._matrix.SwapOnVSync(self.canvas)
 
+    def draw_line(self, x0, y0, x1, y1, red, green, blue):
+        """Draw a line."""
+        color = graphics.Color(red, green, blue)  # may require caching
+        graphics.DrawLine(self.canvas, x0, y0, x1, y1, color)
 
 def rgbmatrix_options_factory(config):
     """Build RGBMatrix options object."""
