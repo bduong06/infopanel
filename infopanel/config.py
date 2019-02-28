@@ -52,6 +52,7 @@ RGBMATRIX = vol.Schema({vol.Optional('led-rows', default=32): int,
 
 GLOBAL = vol.Schema({'font_dir': str,
                      'default_mode': str,
+                     vol.Optional('log_level', default="ERROR"): vol.Any('DEBUG','INFO','WARNING','ERROR','CRITICAL'),
                      'random': bool})
 
 SCHEMA = vol.Schema({'mqtt': MQTT,

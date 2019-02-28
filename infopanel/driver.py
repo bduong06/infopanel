@@ -18,7 +18,7 @@ ON = '1'  # for MQTT processing
 OFF = '0'
 
 LOG = logging.getLogger(__name__)
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename='/var/log/infopanel.log')
 
 
 class Driver(object):  # pylint: disable=too-many-instance-attributes
@@ -206,6 +206,7 @@ def driver_factory(disp, data_src, conf):
 
 def apply_global_config(conf):
     """Apply config items that are global in nature."""
+    logging.basicConfig(level=conf['global']['log_level'])
     from infopanel import helpers
     helpers.FONT_DIR = os.path.expandvars(conf['global']['font_dir'])
 
