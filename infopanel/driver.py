@@ -163,7 +163,7 @@ class Driver(object):  # pylint: disable=too-many-instance-attributes
         self.display.clear()
         # draw border
         self.display.draw_box(0, 0, 119, 79);
-        self.display.rainbow_text(helpers.load_font("9x18B.bdf"), 6, 14, "Hair By Ning", False);
+        self.display.text(helpers.load_font("10x20.bdf"), 0, 14, 255, 0, 255, "Hair By Ning");
         self.display.draw_line(1, 18, 118, 18, 0, 200, 0);
         self.active_scene.draw_frame(self.display)
         self.display.buffer()
